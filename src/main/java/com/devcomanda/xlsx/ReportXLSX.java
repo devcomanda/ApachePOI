@@ -63,6 +63,8 @@ public class ReportXLSX {
             createIntCell(rowExperience, 2 + index, user.getExperience()).setCellStyle(baseStyle);
         }
 
+        rowExperience.createCell(3 + userList.size(), CellType.FORMULA).setCellFormula("SUM(C4:H4)");
+
         report.addMergedRegion(new CellRangeAddress(0, 0, 1, 7));
 
         try (OutputStream os = new FileOutputStream(filePath)){
